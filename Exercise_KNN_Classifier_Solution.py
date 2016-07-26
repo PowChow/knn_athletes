@@ -1,3 +1,6 @@
+#!/usr/bin/python
+# Filename: Exercise_KNN_Classifier_Solution.py
+
 """
 Most functions will only be a few lines long. 
    See the bottom of the file for how the functions fit together.
@@ -201,7 +204,7 @@ def append_scaled_cols(data, column_indices):
     maxes = []
 
     # Get mins/maxes for the desired columns
-    mins, maxes = cols_minmax(athletes, column_indices)
+    mins, maxes = cols_minmax(data, column_indices)
 
     # Scale each value
     for row in data:
@@ -279,7 +282,7 @@ def cross_validate(athletes, column_indices, k = 20):
 # MAIN PROGRAM
 ############################
 
-def main:
+def main():
     ####################
     # GET THE DATA
     ####################
@@ -287,12 +290,10 @@ def main:
     athletes = load_athletes(ATHLETES_FILE)
     print 'data is loaded for knn model'
 
-    # # Get the test point and scale it, using the same scale factors
+    # Get the test point and scale it, using the same scale factors
     # test_point = (24, 221, 110)
     test_point = get_input()
-
-    print("YOUR POINT: ", test_point)
-
+    print "YOUR POINT: ", test_point, "\n"
 
     # ####################
     # # SCALE THE POINTS
@@ -300,21 +301,19 @@ def main:
     # # These scaling routines currently append the 
     # #    exact column values to the end of each row, instead of
     # #    scaling them
-     scale_mins, scale_maxes = append_scaled_cols(athletes, POINT_COLS)
-     test_point = scale_point(test_point, scale_mins, scale_maxes)
+    scale_mins, scale_maxes = append_scaled_cols(athletes, POINT_COLS)
+    test_point = scale_point(test_point, scale_mins, scale_maxes)
 
-     print("SCALED POINT: ", test_point, "\n")
-
+    print "SCALED POINT: ", test_point, "\n"
 
     # ####################
     # # PERFORM K-NN
     # ####################
     # # Find the nearest athletes to the test_point
-    print(athletes)
-    nearest = nearest_athletes(test_point, athletes, k=1)
+    nearest = nearest_athletes(test_point, athletes, k=3)
 
     print("NEAREST ATHLETE(S): ")
-    print(nearest)
+    print(nearest) 
     print()
 
     # # Find the most common event of the nearest athletes
@@ -330,3 +329,11 @@ def main:
     # accuracy = cross_validate(athletes, POINT_COLS, k=1)
 
     # print("FINAL ACCURACY: ", accuracy)
+
+main()
+
+if __name__ == "__main___" : main()
+#     print 'This program is being run by itself'
+# else:
+#     print 'I am being imported from another module'
+     
