@@ -21,6 +21,7 @@ import math
 import sys
 import csv
 from collections import Counter
+import __future__
 
 ATHLETES_FILE = './datasets/athletes.csv'
 
@@ -283,6 +284,7 @@ def cross_validate(athletes, column_indices, k = 20):
 ############################
 
 def main():
+
     ####################
     # GET THE DATA
     ####################
@@ -293,7 +295,7 @@ def main():
     # Get the test point and scale it, using the same scale factors
     # test_point = (24, 221, 110)
     test_point = get_input()
-    print "YOUR POINT: ", test_point, "\n"
+    print("YOUR POINT: ", test_point, "\n")
 
     # ####################
     # # SCALE THE POINTS
@@ -304,7 +306,7 @@ def main():
     scale_mins, scale_maxes = append_scaled_cols(athletes, POINT_COLS)
     test_point = scale_point(test_point, scale_mins, scale_maxes)
 
-    print "SCALED POINT: ", test_point, "\n"
+    print( "SCALED POINT: ", test_point, "\n")
 
     # ####################
     # # PERFORM K-NN
@@ -332,8 +334,4 @@ def main():
 
 main()
 
-if __name__ == "__main___" : main()
-#     print 'This program is being run by itself'
-# else:
-#     print 'I am being imported from another module'
      
